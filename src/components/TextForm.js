@@ -48,23 +48,23 @@ const [text,setText]= useState("");
     <div className='container' style={{color:props.mode==="dark"?"white":"black"}}>
         <h1>{props.heading}</h1>
       <div className="mb-3">
-            <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==="dark"?"grey":"white",color:props.mode==="dark"?"white":"black"}} id="myBox" rows="3"></textarea>
-            <button className="btn btn-primary my-2 mx-2" onClick={handleUpclick}>Convet to UpperCase</button>
-            <button className="btn btn-primary my-2 mx-2" onClick={handleLowerclick}>Convet to LowerCase</button>
-            <button className="btn btn-primary my-2 mx-2" onClick={handleClrclick}>Clear</button>
-            <button className="btn btn-primary my-2 mx-2" onClick={reversed}>Reverse Text</button>
-            <button className="btn btn-primary my-2 mx-2" onClick={handleCapitalize}>Capitalize Text</button>
-            <button className="btn btn-primary my-2 mx-2" onClick={handleSpaces}>Remove Spaces</button>
-            <button className="btn btn-primary my-2 mx-2" onClick={handleCopy}>Copy Text</button>
+            <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==="dark"?"#111028":"white",color:props.mode==="dark"?"white":"black"}} id="myBox" rows="3"></textarea>
+            <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={handleUpclick}>Convet to UpperCase</button>
+            <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={handleLowerclick}>Convet to LowerCase</button>
+            <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={handleClrclick}>Clear</button>
+            <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={reversed}>Reverse Text</button>
+            <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={handleCapitalize}>Capitalize Text</button>
+            <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={handleSpaces}>Remove Spaces</button>
+            <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={handleCopy}>Copy Text</button>
 
 
       </div>
     </div>
     <div className='container my-3'style={{color:props.mode==="dark"?"white":"black"}}>
       <h1>Your Text Summary</h1>
-      <p>{text.split(" ").length} words and {text.length} characters</p>
+      <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
       <h2>Preview</h2>
-      <p>{text.length>0?text:"Enter something above to preview..."}</p>
+      <p>{text.length>0?text:"Nothing to preview , Enter text above..!"}</p>
 
     </div>
     </>
