@@ -56,8 +56,6 @@ const [text,setText]= useState("");
             <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={handleCapitalize}>Capitalize Text</button>
             <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={handleSpaces}>Remove Spaces</button>
             <button disabled={text.length===0} className="btn btn-primary my-2 mx-2" onClick={handleCopy}>Copy Text</button>
-
-
       </div>
     </div>
     <div className='container my-3'style={{color:props.mode==="dark"?"white":"black"}}>
